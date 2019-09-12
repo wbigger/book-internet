@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="it" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Internet</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="index.html"><strong aria-hidden="true">1.</strong> Reti, Internet e Web</a></li><li><a href="reti-internet/index.html"><strong aria-hidden="true">2.</strong> Reti e Internet</a></li><li><ol class="section"><li><a href="reti-internet/01-trasmissione.html"><strong aria-hidden="true">2.1.</strong> Trasmissione dei dati</a></li><li><a href="reti-internet/02-codifica.html"><strong aria-hidden="true">2.2.</strong> Codifica dell'informazione</a></li><li><a href="reti-internet/03-protocolli.html"><strong aria-hidden="true">2.3.</strong> Protocolli di rete</a></li></ol></li><li><a href="email/index.html"><strong aria-hidden="true">3.</strong> Email &amp; Messaggi</a></li><li><ol class="section"><li><a href="email/001-spam.html"><strong aria-hidden="true">3.1.</strong> Spam</a></li><li><a href="email/002-ambiente.html"><strong aria-hidden="true">3.2.</strong> Ambiente &amp; Sovraccarico informatico</a></li><li><a href="email/01-netiquette.html"><strong aria-hidden="true">3.3.</strong> Netiquette</a></li></ol></li><li><a href="web/index.html"><strong aria-hidden="true">4.</strong> Web</a></li><li><ol class="section"><li><a href="web/01-web-4.0.html"><strong aria-hidden="true">4.1.</strong> Web 4.0</a></li><li><a href="web/02-privacy-security.html"><strong aria-hidden="true">4.2.</strong> Privacy &amp; Security</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Internet</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#reti-internet-e-web" id="reti-internet-e-web">Reti, Internet e Web</a></h1>
+<p>Benvenuti all'unità sui protocolli di rete, Internet e il Web!</p>
+<p>Questo materiale riepiloga quanto detto la mattina nelle ore di lezione.</p>
+<p>Le risposte alle domande dei compiti in classe sono tutte incluse in questo pagine e nelle pagine del libro a cui fa riferimento.</p>
+<blockquote>
+<p>I paragrafi nei box tipo questo sono approfondimenti. Cose interessanti ma che non verranno chieste al compito.</p>
+</blockquote>
+<p>Buon lavoro.</p>
+<h1><a class="header" href="#reti-e-internet" id="reti-e-internet">Reti e Internet</a></h1>
+<p>Quando due persone vogliono comunicare tra di loro, devono utilizzare un mezzo di comunicazione e un linguaggio che sia comprensibile ad entrambi.</p>
+<p>Nel caso degli esseri umani, ad esempio si può comunicare con la voce. Il mezzo di comunicazione sono i suoni e le parole, ed il linguaggio è ad esempio l'italiano.</p>
+<p>In maniera simile accade anche nei calcolatori.</p>
+<p>Identifichiamo due elementi:</p>
+<ul>
+<li>trasmissione di un dato</li>
+<li>interpretazione del dato</li>
+</ul>
+<h1><a class="header" href="#trasmissione-dei-dati" id="trasmissione-dei-dati">Trasmissione dei dati</a></h1>
+<p>I calcolatori oggi trasmettono e ricevono dati sotto forma di <em>valori binari</em>. Possiamo rappresentare un valore binario in vario modo, ad esempio:</p>
+<ul>
+<li>acceso / spento</li>
+<li>vero / falso</li>
+<li>alto / basso</li>
+<li>1 / 0</li>
+</ul>
+<p>Se il valore binario viene rappresentato come un numero, abbiamo quelli che si chiamano <em>numeri binari</em>, detti anche bit, dalla contrazione delle parole inglesi &quot;BInary digiT&quot;</p>
+<p>Per comunicare un calcolatore invia una sequenza di bit, e l'altro calcolatore la riceve.</p>
+<p>Ad esempio:</p>
+<pre><code>Mio Computer --&gt; 0010101000100100100 --&gt; Computer di destinazione
+</code></pre>
+<p>Una sequenza di bit da sola però non è molto utile, come non è molto utile ascoltare una serie di suoni se non ne capiamo il significato.</p>
+<p>Dobbiamo passare ad una fase successiva in cui interpretiamo il dato in arrivo. Questa operazione si chiama <em>codifica</em>.</p>
+<blockquote>
+<p>Perché i calcolatori usano i bit?
+L'elettronica dei calcolatori fin dalla loro nascita è basata su valori logici binari. Non usare i bit significherebbe rivoluzionare completamente la struttura dei computer: c'è qualcuno che ci sta provando, vedi ad esempio i <a href="https://it.wikipedia.org/wiki/Computer_quantistico">computer quantistici</a>.</p>
+</blockquote>
+<h1><a class="header" href="#codifica-dellinformazione" id="codifica-dellinformazione">Codifica dell'informazione</a></h1>
+<p>Immaginiamo di avere ricevuto la nostra sequenza di bit. Come facciamo a ricavarne informazioni utili?</p>
+<p>Prima di tutto dobbiamo sapere che cosa rappresentano questi bit. Possono rappresentare, ad esempio:</p>
+<ul>
+<li>numeri, es. 1498</li>
+<li>parole, es. &quot;ciao&quot;</li>
+<li>immagini</li>
+<li>filmati</li>
+</ul>
+<p>Esamineremo ora alcuni tipi di codifica fondamentali.</p>
+<h2><a class="header" href="#numeri" id="numeri">Numeri</a></h2>
+<p>Interpretare una sequenza di bit in un numero binario è una operazione che richiede una certa attenzione.</p>
+<p>Per i numeri positivi, possiamo fare semplicemente una conversione di base da binario a decimale.</p>
+<p>Ad esempio:</p>
+<pre><code>11011 binario --&gt; 27 decimale
+</code></pre>
+<p>Per convertire da binario a decimale, vedi il libro:</p>
+<ul>
+<li>&quot;Interpretiamo il valore binario con le carte&quot;, pag. 25</li>
+</ul>
+<blockquote>
+<p>Per i numeri negativi, la situazione è più complessa e si possono usare varie convenzioni. Per questa unità ci concentreremo sui numeri positivi.</p>
+</blockquote>
+<h2><a class="header" href="#caratteri-alfanumerici" id="caratteri-alfanumerici">Caratteri alfanumerici</a></h2>
+<p>Un altro modo per interpretare una sequenza di bit è come un carattere dell'alfabeto. Per fare questa codifica abbiamo necessariamente bisogno di una tabella che ci dica che lettera, o simbolo, assegnare ad una certa sequenza.</p>
+<p>Ad esempio nelle nostre lezioni abbiamo usato una codifica proposta da CSUnplugged, che potete scaricare da <a href="reti-internet/./binary-to-alphabet.pdf">qui</a>.</p>
+<p>Vedi pagine 34-35 del libro per approfondimenti.</p>
+<blockquote>
+<p>La codifica più diffusa per i caratteri dell'alfabeto latino e i simboli base è chiamata <a href="https://it.wikipedia.org/wiki/ASCII">ASCII</a> (American Standard Code for Information Interchange), ed è stata pubblicata per la prima volta nel 1963. Oggi si usa più comunemente lo standard <a href="https://it.wikipedia.org/wiki/Unicode">Unicode</a>, che include anche i caratteri di tutte le lingue del mondo e le emoji 😉</p>
+</blockquote>
+<h2><a class="header" href="#immagini" id="immagini">Immagini</a></h2>
+<p>L'interpretazione di una sequenza di bit in una immagine può essere fatta in una multitudine di modi, anche molto diverse fra loro. Qual'è la migliore? Ovviamente, come sapete bene, la risposta è: dipende dal mio contesto d'uso.</p>
+<p>In classe abbiamo visto un tipo particolare di codifica, al quale ad ogni bit viene associato un pixel dell'immagine.</p>
+<p>Ad esempio:</p>
+<pre><code>10001
+01010
+00100
+01010
+10001
+</code></pre>
+<p>diventa:</p>
+<img src='./reti-internet/cross-alpha.png'>
+<p>Se vogliamo una maggiore risoluzione o più colori, dobbiamo necessariamente aumentare il numero di bit. Maggiore è il numero di bit, maggiore è lo spazio che occuperà in memoria, detto anche <em>peso</em> dell'immagine. Non c'è una risoluzione migliore in assoluto, ma ci sono alcune accortezze che dobbiamo tenere a mente. In generale, è bene cercare di avere le immagini più leggere possibili senza danneggiare l'esperienza dell'utente: ad esempio
+tutto quello che viaggia sul web ha una risoluzione che va bene per la visualizzazione su schermo, ma non per la stampa o ingrandimenti, per ridurre quanto più possibile i tempi di caricamento della pagina ed il traffico dati. I siti di fotografia invece hanno risoluzioni molto più alte.</p>
+<h1><a class="header" href="#protocolli-di-rete" id="protocolli-di-rete">Protocolli di rete</a></h1>
+<p>Finora noi abbiamo trasmesso l'informazione come una sequenza di bit da una macchina all'altra. Questo potrebbe andare abbastanza bene se ci fossero solo due computer, senza nessuna interferenza tra loro. Ma nella realtà ci sono tantissimi computer che comunicano sulla stessa rete, e tantissime interferenze per la strada.</p>
+<p>Abbiamo fatto una simulazione della confusione della rete in classe, quando provavate a mandarvi dei messaggi da un banco all'altro, con il professore che faceva da messaggero, ed ogni tanto si perdeva o mischiava i biglietti.
+In effetti su Internet è come se due computer parlassero da un lato all'altro della vostra classe.</p>
+<p>Per poter comunicare in maniera affidabile è necessario che siano implementati dei meccanismi per assicurarsi che i dati viaggino e arrivino in maniera corretta. Questi meccanismi vengono detti <em>protocolli di rete</em>.</p>
+<p><a href="https://it.wikipedia.org/wiki/Vint_Cerf">Vint Cerf</a> negli anni settanta, insieme Bob Kahn, ha ideato un tipo di protocollo particolarmente efficace, che ha avuto una larghissima diffusione. Questo protocollo si chiama TCP/IP ed è alla base di Internet.</p>
+<h1><a class="header" href="#divisione-dei-dati-in-pacchetti" id="divisione-dei-dati-in-pacchetti">Divisione dei dati in pacchetti</a></h1>
+<p>Per aumentare la probabilità che i dati arrivino a destinazione, si usa prima di tutto una tecnica chiamata &quot;segmentazione dei pacchetti&quot; (packet segmentation, in inglese). In pratica, se i dati da inviare superano una certa dimensione, il nostro computer li spezzetta.</p>
+<p>Ipotizziamo di voler inviare questo messaggio:</p>
+<pre><code>CIAOCOMESTAIVINT
+</code></pre>
+<p>Se ogni pacchetto contiene al massimo 6 caratteri, lo dovremo dividere in 3 pacchetti:</p>
+<pre><code> CIAOCO
+ MESTAI
+ VINT
+</code></pre>
+<p>I pacchetti vengono quindi inviati separatamente e gestiti in maniera indipendente dalla rete. Possono succedere principalmente due cose spiacevoli:</p>
+<ul>
+<li>i pacchetti si mischiano tra di loro</li>
+<li>qualche pacchetto si perde del tutto</li>
+</ul>
+<blockquote>
+<p>Come fa a perdersi un pacchetto? Ci possono essere varie cause: il traffico nella rete è troppo alto ed alcuni pacchetti vengono buttati, qualche cavo o computer sparso per il mondo si rompe, interferenze elettromagnetiche...</p>
+</blockquote>
+<blockquote>
+<p>Tipicamente si dividono i pacchetti hanno una dimensione massima di circa 1500 bytes.</p>
+</blockquote>
+<h2><a class="header" href="#numerazione-dei-pacchetti" id="numerazione-dei-pacchetti">Numerazione dei pacchetti</a></h2>
+<p>Per evitare che i pacchetti arrivino nell'ordine sbagliato, possiamo numerarli. Utilizziamo quindi parte del nostro spazio per scriverci il numero del pacchetto. Quando dall'altra parte il computer riceve un pacchetto, lo mette nell'ordine corretto.</p>
+<h2><a class="header" href="#richiesta-di-ritrasmissione" id="richiesta-di-ritrasmissione">Richiesta di ritrasmissione</a></h2>
+<p>E se qualche pacchetto non arrivasse del tutto? Dobbiamo prevedere un meccanismo per richiedere al mittente un pacchetto perso. Per fare questo dobbiamo sacrificare un'altra parte del nostro spazio, ma ne vale la pena!</p>
+<h1><a class="header" href="#email" id="email">Email</a></h1>
+<p>Le email (dette anche e-mail, o electronic mail, letteralmente <em>posta elettronica</em>) è stato uno dei primi utilizzi della rete di calcolatori. Pensate che ancora negli anni '80, per inviare una comunicazione scritta ad un collega l'unico modo era inviare una lettera, o scrivere dei foglietti che andavano nei famosi <em>in basket</em>.</p>
+<p align="center">
+<img title="in basket" src='./email/in-basket.gif' width='30%' style="padding: 30px 0 10px 0;">
+</p>
+<p>Poter mandare un messaggio in maniera digitale era molto più comodo, veloce ed economico. Fin troppo: le email sono state il primo mezzo di comunicazione con cui era possibile inviare un messaggio a decine, centinaia o anche migliaia di persone contemporaneamente, sparse per tutto il globo, ad un prezzo praticamente irrisorio. Questo ha creato necessariamente una serie di problemi, che persistono tuttora, alcuni dei quali sono descritti di seguito. <strong>Attenzione</strong>: alla maggior parte di questi problemi non c'è una soluzione &quot;tecnica&quot;. Il corretto uso delle email e dei messaggi è <em>responsabilità</em> di chi li usa, ovvero chi li manda, ma anche chi li riceve, come vedremo tra poco.</p>
+<blockquote>
+<p>Molti dei problemi descritti qui sotto per le email, cominciano a diffondersi anche su altri canali di messaggi, come ad esempio Whatsapp. Quindi fate sempre attenzione ai messaggi che ricevete!</p>
+</blockquote>
+<h2><a class="header" href="#spam" id="spam">Spam</a></h2>
+<p>La parola &quot;spam&quot; è usata per descrivere quelle email che sono state mandate ad un gran numero di persone, senza il permesso del destinatario e senza comunque che il destinatario abbia interesse a leggere queste email.</p>
+<blockquote>
+<p>La parola spam deriva da <a href="https://www.youtube.com/watch?v=anwy2MPT5RE">questo</a> video di Monty Python.</p>
+</blockquote>
+<p>Per esempio recentemente mi è arrivata questa email:</p>
+<p align="center">
+<img title="spam" src='./email/spam.png' width='90%' style="padding: 30px 0 10px 0;">
+</p>
+<p>Io non conosco Roy's Resturant, né tantomeno mi sono mai iscritto a qualche servizio offerto da loro. Un altro indizio sospetto è che l'indirizzo del mittente finisce con fbmta.com, che non sembra avere alcun senso. Ma il dato determinante è quello che evidenziato con un rettangolo rosso in alto a sinistra, nell'oggetto: la mail è indirizzata a &quot;William&quot;. Chi è William? Il fatto è che il mio indirizzo email inizia con &quot;w&quot;, e siccome molti indirizzi hanno la prima lettera del nome e poi il cognome, il mittente ha ipotizzato che io mi chiamassi &quot;William&quot;, il nome più comune con la w in America...Da tutto questo si deduce che questo messaggio è decisamente spam.</p>
+<blockquote>
+<p>Non sempre è possibile distinguere nettamente tra spam e pubblicità. Alcune email di pubblicità sono per noi utili, e anche gradite, se ci arrivano offerte interessanti. Quando però cominciano ad essere troppo frequenti, con contenuti di scarsa rilevanza per noi, si passa dalla pubblicità allo spam, ma può essere una cosa soggettiva.</p>
+</blockquote>
+<p>Questa mail è indesiderata ma tuttavia abbastanza innocua (a parte lo spreco di banda, spazio sul disco e inquinamento ambientale). Ci sono altre email che sono molto più pericolose.</p>
+<h2><a class="header" href="#phishing" id="phishing">Phishing</a></h2>
+<p>Le email di phishing sono a tutti gli effetti un tentativo di <em>truffa</em>. Il caso più comune è un mittente che simula, nella grafica e nel contenuto, una istituzione nota, come ad esempio le poste o una banca. Chi riceve la mail, se non si accorge della truffa, clicca su un link presente e si ritrova su una pagina contraffatta. Se inserisce password o altri dati sensibili su questa pagina, sicuramente passerà dei guai.</p>
+<p>A volte è semplice accorgersi del phishing, perché i testi sono in un italiano poco corretto o le immagini sgranate. Ma altre volte non è banale. Vediamo un esempio:</p>
+<p align="center">
+<img title="phishing" src='./email/phishing.gif' width='90%' style="padding: 30px 0 10px 0;">
+</p>
+<p>Questa mail sembra credibile. Anche il link sembra quello ufficiale. Ma <strong>attenzione</strong>: nella realtà quando andate a cliccare su quel link vi porta su una pagina con un indirizzo diverso! Infatti il testo del link può essere diverso dal link stesso: ad esempio questo link <a href="http://www.veneziacomics.com/files/veneziacomics.com/2016/02/10636612_10153724437910700_8664823752192133128_o.jpg">www.google.com</a> non porta dove ci si aspetta! Quindi <strong>fate sempre molta attenzione prima di cliccare su qualcosa</strong>.</p>
+<h3><a class="header" href="#phishing-su-whatsapp" id="phishing-su-whatsapp">Phishing su Whatsapp</a></h3>
+<p>Un altro caso di phishing che mi è capitato qualche tempo fa su Whatsapp è stato questo:</p>
+<p align="center">
+<img title="phishing whatsapp" src='./email/phishing-wa.png' width='90%' style="padding: 30px 0 10px 0;">
+</p>
+<p>In questo caso è più evidente che si tratta di un errore, perché il sito ha un indirizzo alquanto strano.</p>
+<h2><a class="header" href="#malware" id="malware">Malware</a></h2>
+<p>Il malware è un messaggio inviato con l'intento di fare un danno sulla macchina del destinatario. Un esempio recentissimo e che ha fatto storia è stato il carattere indiano che mandava in crash i dispositivi Apple.</p>
+<p align="center">
+<img title="phishing" src='./email/malware.png' width='30%' style="padding: 30px 0 10px 0;">
+</p>
+<p>Se un messaggio contente questo carattere è stato mandato con l'esplicito intento di fare un danno, può essere considerato a tutti gli effetti un malware.</p>
+<p>Anche in questo caso, fate sempre attenzione quando ricevete una <strong>mail sospetta</strong>: se contiene un allegato, <strong>non</strong> apritelo. Se non siete sicuri, inviate una mail al mittente chiedendo se è sicuro aprire l'allegato. Se questo per qualche motivo non fosse possibile, semplicemente ignorate il messaggio: meglio rimanere con la curiosità che perdere ore o giorni a rimettere a posto il vostro dispositivo o, peggio, fare da veicolo di infezione per altre persone.</p>
+<h1><a class="header" href="#ambiente--sovraccarico-informatico" id="ambiente--sovraccarico-informatico">Ambiente &amp; Sovraccarico informatico</a></h1>
+<h2><a class="header" href="#email-e-inquinamento" id="email-e-inquinamento">Email e inquinamento</a></h2>
+<p>Mandare una mail inquina di meno di mandare una lettera, ma bisogna considerare che oggi si manda un numero di mail enorme, e l'impatto ambientale è considerevole. Secondo alcuni studi riportati da Lifegate in <a href="https://www.lifegate.it/persone/news/quanto-inquina-internet">questa pagina</a>, se consideriamo l'inquinamento prodotto dai server sia per funzionare che per essere prodotti, lo spam inquina come <strong>3 milioni di automobili</strong>. Non poche!</p>
+<p>Cosa ne dobbiamo dedurre? Semplicemente, come al solito, di usare gli strumenti che abbiamo con buonsenso. Cancellatevi dalle mailing list che non vi interessano e segnalate sempre le mail di spam quando possibile. Per esempio su gmail c'è un bottone con unpunto esclamativo sopra ogni email, per segnalare eventuali casi di spam.</p>
+<p>Altre accortezze: se dovete condividere un file, invece di allegarlo alla mail, considerate di caricarlo su qualche piattaforma online come Dropbox o Google Drive. Così ci saranno meno copie in giro per il mondo, meno byte da scaricare e, in definitiva, una rete più veloce, efficiente ed ecologica.</p>
+<h2><a class="header" href="#sovraccarico-informativo" id="sovraccarico-informativo">Sovraccarico informativo</a></h2>
+<p>La facilità con cui è possibile inviare e ricevere messaggi ed informazioni porta ad essere continuamente interrotti nelle proprie attività, con evidenti problemi di concentrazione e di conseguenza problemi ad arrivare ai propri obiettivi. Pensate ad una partita di calcetto o di un qualsiasi altro sport: sarebbe difficile giocare e vincere con un cellulare in mano, chattando su Whatsapp.</p>
+<p>Questo problema non riguarda solo i ragazzi, ma chiunque abbia uno smartphone, ovvero quasi tutti, e ha conseguenze negative dai bambini fino agli anziani, e ci sono molti studi e strategie consolidate per cercare di limitare i danni.</p>
+<blockquote>
+<p>Alcune delle tecninche più diffuse oggi sono <a href="https://www.youtube.com/watch?v=VFW3Ld7JO0w">La tecnica del pomodoro</a> di Francesco Cirillo e <a href="https://gettingthingsdone.com/">Getting Things Done</a> di David Allen.</p>
+</blockquote>
+<p>Alcuni piccoli suggerimenti che potete valutare:</p>
+<ul>
+<li>non controllare i messaggi la mattina appena svegli</li>
+<li>non controllare le email prima di pranzo</li>
+<li>mettere il cellulare in modalità &quot;non disturbare&quot; mentre si stanno facendo altre attività</li>
+</ul>
+<p>In generale, quando si comincia a fare qualcosa che richiede concentrazione conviene ignorare tutti i messaggi per almeno mezz'ora, poi prendere una piccola pausa per riposarsi e controllare eventuali messaggi urgenti, quindi rimettersi al lavoro per un'altra mezz'ora, e così via. Non ci sono messaggi così urgenti da non poter aspettare qualche minuto: se è davvero urgentissimo, vi chiameranno. In questo si riesce a bilanciare in maniera semplice ed efficace sia la necessità di concentrazione che di comunicazione con le altre persone.</p>
+<h1><a class="header" href="#netiquette" id="netiquette">Netiquette</a></h1>
+<p>Le email, i blog, i forum e i gruppi su Whatsapp o Telegram sono degli strumenti utilissimi, ma coinvolgono la sfera <em>sociale</em> dell'individuo e quindi sono soggetti, nel bene e nel male, a tutte le dinamiche sociali che ben conosciamo anche nella vita reale. Imparare a riconoscere un linguaggio ostile e a difendersi da esso nel mondo digitale, può esserci utile anche a fare lo stesso nel mondo reale.</p>
+<h2><a class="header" href="#flaming" id="flaming">Flaming</a></h2>
+<pre><code>ClashFan: Sto giocando all'ultima versione di Clash Royale. È bellissima!
+
+Attacker: Io l'ho provata ma non mi piace per niente, non capisco cosa ci trovi di bello.
+Le nuove carte sono senza senso, e dopo pochi minuti mi sono annoiato e ho spento.
+
+ClashFan: Ma che dici?? È stupenda!
+
+Attacker: No! È pessima!
+</code></pre>
+<p>E così via.</p>
+<p>Qui ci troviamo di fronte ad una discussione in cui una persona ha delle critiche reali, ma le esponde in maniera troppo dura, provocando polemiche e discussioni senza fine. In questi casi, cercate sempre di smorzare i toni. Se vi sentite troppo innervositi, non rispondete: meglio lasciar passare qualche ora e tornare sulla discussione più tardi o il giorno dopo. A volte a caldo possiamo essere stati noi a dare una interpretazione sbagliata ad alcune frasi.</p>
+<p>In generale però, state attenti a non ignorare le critiche, ed anzi apprezzatene il valore, anche se le modalità con cui sono state espresse sono brusche.</p>
+<h2><a class="header" href="#trolling" id="trolling">Trolling</a></h2>
+<pre><code>ClashFan: Sto giocando all'ultima versione di Clash Royale. È bellissima!
+
+Attacker: 6 un Kretino tale e KUAle tuo fraTeLLo LOLOLOL!
+</code></pre>
+<p>In questo caso l'attaccante non ha evidentemente nessuna buona intenzione, vuole solo creare confusione. Soluzione rapida ed efficace: <strong>ignoratelo</strong>. Se la piattaforma che usate lo permette, bloccatelo o filtrate via i suoi messggi.</p>
+<p>Detto questo, può esistere anche un troll etico, se le regole del gioco sono chiare per tutti. Un troll etico è un modo per divertirsi ma bisogna sempre rimanere nei limiti dell'amicizia. Offese, vandalismo e simili non sono mai accettabili. <a href="https://www.wikihow.it/Trollare">Qui</a> per esempio c'è una lunga lista di suggerimenti per troll: anche se non avete intenzione di trollare, leggerli è estremamente utile anche per riconoscere un troll e capire come ragiona!</p>
+<h1><a class="header" href="#web" id="web">Web</a></h1>
+<p>Siamo nel 1989, al CERN di Ginevra, in Svizzera. Un laureato in fisica con la borsa di studio trovava estremamente frustrante dover andare a cercare le informazioni che gli servivano per le sue ricerche sui vari computer del centro di ricerca (il più grande del mondo per la fisica delle particelle). Questo ricercatore si immaginava di avere una pagina con delle parole cliccabili che rimandavano a delle risorse o ad altre pagine: sarebbe stato comodissimo!</p>
+<p>Il ricercatore si chiamava <a href="https://it.wikipedia.org/wiki/Tim_Berners-Lee">Tim Berners-Lee</a>, e il nome che aveva dato a queste pagine era <em>ipertesto</em> (HyperText). Scrisse un articolo su questa idea, ed il suo capo gli permise di lavorarci per un piccolo progetto collaterale. È nato in questo modo, quasi per caso, il <em>World Wide Web</em> che conosciamo oggi, chiamato anche più semplicemente il <em>Web</em>.</p>
+<blockquote>
+<p><em>Web</em> in inglese significa propriamente <em>ragnatela</em>, mentre <em>rete</em> si traduce con <em>net</em>. Tuttavia, di solito Web si traduce in italiano con il termine più generico di rete.</p>
+</blockquote>
+<p>Gli ingredienti che Tim Berners-Lee ha inventato e messo a punto per il suo progetto sono:</p>
+<ul>
+<li>un linguaggio per scrivere le pagine web, utilizzando dei marcatori, che ha chiamato HyperText Markup Language (HTML, in italiano si potrebbe tradurre con linguaggio con marcatori per ipertesti);</li>
+<li>un modo per identificare in maniera univoca una risorsa su internet, che ha chiamato Universal Resource Locator (URL, in italiano localizzatore di risorse universale);</li>
+<li>un protocollo per trasmettere gli ipertesti, che ha chiamato HyperText Transfer Protocol (HTTP)</li>
+</ul>
+<p>Tutte queste cose sono diventate uno standard per nel mondo attuale, e le imparerete a conoscere nei prossimi anni.</p>
+<blockquote>
+<p>L'associazione che si occupa di standardizzare tutti gli aspetti del web si chiama World Wide Web Consortium, abbreviato con <em>w3c</em>. Il w3c è stato fondato da Tim Berners-Lee, che ne è ancora il presidente.</p>
+</blockquote>
+<p>Questa è una pagina che abbiamo creato insieme a lezione.</p>
+<p align="center">
+<img title="tim berners-lee" src='./web/tim-berners-lee.png' width='100%' style="padding: 30px 0 10px 0;border-style: solid;">
+</p>
+<h1><a class="header" href="#web-40" id="web-40">Web 4.0</a></h1>
+<p>All'inizio il web era semplicemente un insieme di pagine collegate tra di loro, che facevano a loro volta riferimento a risorse come ad esempio file, immagini, video, e simili. Con il passare del tempo si è evoluto fino alla complessità dinamica che conosciamo oggi. Le farie fasi del web vengono solitamente numerate, con tipico spirto informatico.</p>
+<p>Consideriamo ad esempio il sito di una pizzeria. Se c'è solo una pagina statica, con i prezzi delle pizze e l'indirizzo scritto in fondo alla pagina, siamo nel <strong>web 1.0</strong>. In questo caso, c'è una persona che pubblica i contenuti (il gestore), ed altre che li leggono (gli utenti). Se il sito permette di scrivere delle recensioni, passiamo al <strong>web 2.0</strong>, dove non c'è più una distinzione netta tra chi pubblica e chi legge. Se il sito della pizzeria presenta le informazioni in base all'utente che lo visualizza, basandosi sulle preferenze trovate su Facebook, passiamo al <strong>web 3.0</strong>, detto anche <em>web semantico</em>.</p>
+<p>In questo momento ci stiamo muovendo verso un passo successivo del web, che esce fuori dagli schermi dei nostri computer e smartphone e permea tutti gli oggetti della nostra vita quotidiana: frigoriferi, termosifoni, lampadine, automobili, marciapiedi, strade, cartelli stradali, porte, finestre, scarpe, vestiti, ... potenzialmente qualsiasi cosa! Tutte queste cose, tutti questi oggetti sono collegati a Internet e tra di loro e interagiscono con noi in base a complessi algoritmi. Questa nuova rete viene anche chiamata l'<em>Internet delle Cose</em> (Internet of Things), e come potete immaginare coinvolge moltissime tecnologie: intelligenza artificiale, realtà virtuale ed aumentata, robotica, sicurezza informatica, stampanti 3D, big data, e molto altro ancora.</p>
+<p>È un mondo ancora in gran parte da costruire e voi potreste esserne i protagonisti, in un prossimo futuro.</p>
+<p align="center">
+<img title="industria 4.0" src='./web/industry-4.0-pillars.png' width='90%' style="padding: 30px 0 10px 0;">
+</p>
+<p><em>Immagine: copyright Pearson-Comau 2018</em></p>
+<h1><a class="header" href="#privacy--security" id="privacy--security">Privacy &amp; Security</a></h1>
+<p>&quot;Da un grande potere deriva una grande responsabilità&quot; - Ben Parker</p>
+<p>Più le tecnologie evolvono, maggiore è l'impatto nelle nostre vite, maggiore è la nostra responsabilità nel trattare con esse.</p>
+<h2><a class="header" href="#privacy" id="privacy">Privacy</a></h2>
+<p>Recentemente c'è stato un grande scandalo per cui i dati di Facebook sono stati usati in maniera non autorizzata per influenzare la campagna elettorale americana del 2016. Il CEO di Mark Zuckerberg ha scritto un <a href="https://www.facebook.com/zuck/posts/10104712037900071">post ufficiale</a> con le proprie scuse, ed una spiegazione dei fatti.</p>
+<p>Diverse nuove strategie sono state messe in campo per evitare che queste cose si ripetano, ma la tecnologia evolve continuamente e sicuramente si verificheranno casi simili in futuro. Una cosa è certa: non possiamo solo delegare le multinazionali e le istituzioni di garantire la nostra privacy. Loro devono fare la loro parte, sicuramente, ma noi dobbiamo fare la nostra. Dobbiamo stare attenti ai dati che condividiamo in rete, e verificare per quanto possibile le informazioni importanti, o per lo meno evitare di condividere delle notizie di cui non abbiamo una ragionevole certezza dell'affidabilità con i nostri contatti.</p>
+<h2><a class="header" href="#security--safety" id="security--safety">Security &amp; Safety</a></h2>
+<p>In inglese la parola <em>security</em> ha un significato più specifico del nostro termine <em>sicurezza</em>: si riferisce infatti in maniera più specifica alla protezione dagli attacchi informatici e da altri possibili danni più o meno dolosi. Il termine <em>safety</em> si riferisce invece più in particolare alla sicurezza fisica delle persone.</p>
+<p>Fino a poco tempo fa, solo in alcuni casi specifici problemi di security potevano portare a problemi di safety: aviazione, centrali nucleari, e altri casi specifici. Con l'arrivo cel Web 4.0, è molto più facile che un problema informatico porti a danni sulle persone.</p>
+<p>Il 18 marzo 2018, nella città di Tempe, Arizona, per la prima volta una macchina a guida autonoma investe ed uccide un pedone. Per certi versi, potrebbe essere chiamata la prima volta in cui un robot automatico uccide una persona.</p>
+<p>Come si fa ad evitare che queste cose accadano in futuro? Ovviamente non si può eliminare completamente il rischio, ma la nostra responsabilità è portare al minimo questo rischio. In quanto informatici, dobbiamo essere <em>ossessionati</em> dalla qualità del nostro lavoro: dobbiamo avere la ragionevole certezza, in ogni momento, che il codice che stiamo scrivendo sia di buona qualità e privo di bug, perlomeno importanti. Solo così potremo costruire un futuro più sicuro per noi e per tutti. Buon lavoro!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>

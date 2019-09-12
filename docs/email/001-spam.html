@@ -1,0 +1,242 @@
+<!DOCTYPE HTML>
+<html lang="it" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Spam - Internet</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Reti, Internet e Web</a></li><li><a href="../reti-internet/index.html"><strong aria-hidden="true">2.</strong> Reti e Internet</a></li><li><ol class="section"><li><a href="../reti-internet/01-trasmissione.html"><strong aria-hidden="true">2.1.</strong> Trasmissione dei dati</a></li><li><a href="../reti-internet/02-codifica.html"><strong aria-hidden="true">2.2.</strong> Codifica dell'informazione</a></li><li><a href="../reti-internet/03-protocolli.html"><strong aria-hidden="true">2.3.</strong> Protocolli di rete</a></li></ol></li><li><a href="../email/index.html"><strong aria-hidden="true">3.</strong> Email &amp; Messaggi</a></li><li><ol class="section"><li><a href="../email/001-spam.html" class="active"><strong aria-hidden="true">3.1.</strong> Spam</a></li><li><a href="../email/002-ambiente.html"><strong aria-hidden="true">3.2.</strong> Ambiente &amp; Sovraccarico informatico</a></li><li><a href="../email/01-netiquette.html"><strong aria-hidden="true">3.3.</strong> Netiquette</a></li></ol></li><li><a href="../web/index.html"><strong aria-hidden="true">4.</strong> Web</a></li><li><ol class="section"><li><a href="../web/01-web-4.0.html"><strong aria-hidden="true">4.1.</strong> Web 4.0</a></li><li><a href="../web/02-privacy-security.html"><strong aria-hidden="true">4.2.</strong> Privacy &amp; Security</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Internet</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2><a class="header" href="#spam" id="spam">Spam</a></h2>
+<p>La parola &quot;spam&quot; è usata per descrivere quelle email che sono state mandate ad un gran numero di persone, senza il permesso del destinatario e senza comunque che il destinatario abbia interesse a leggere queste email.</p>
+<blockquote>
+<p>La parola spam deriva da <a href="https://www.youtube.com/watch?v=anwy2MPT5RE">questo</a> video di Monty Python.</p>
+</blockquote>
+<p>Per esempio recentemente mi è arrivata questa email:</p>
+<p align="center">
+<img title="spam" src='./email/spam.png' width='90%' style="padding: 30px 0 10px 0;">
+</p>
+<p>Io non conosco Roy's Resturant, né tantomeno mi sono mai iscritto a qualche servizio offerto da loro. Un altro indizio sospetto è che l'indirizzo del mittente finisce con fbmta.com, che non sembra avere alcun senso. Ma il dato determinante è quello che evidenziato con un rettangolo rosso in alto a sinistra, nell'oggetto: la mail è indirizzata a &quot;William&quot;. Chi è William? Il fatto è che il mio indirizzo email inizia con &quot;w&quot;, e siccome molti indirizzi hanno la prima lettera del nome e poi il cognome, il mittente ha ipotizzato che io mi chiamassi &quot;William&quot;, il nome più comune con la w in America...Da tutto questo si deduce che questo messaggio è decisamente spam.</p>
+<blockquote>
+<p>Non sempre è possibile distinguere nettamente tra spam e pubblicità. Alcune email di pubblicità sono per noi utili, e anche gradite, se ci arrivano offerte interessanti. Quando però cominciano ad essere troppo frequenti, con contenuti di scarsa rilevanza per noi, si passa dalla pubblicità allo spam, ma può essere una cosa soggettiva.</p>
+</blockquote>
+<p>Questa mail è indesiderata ma tuttavia abbastanza innocua (a parte lo spreco di banda, spazio sul disco e inquinamento ambientale). Ci sono altre email che sono molto più pericolose.</p>
+<h2><a class="header" href="#phishing" id="phishing">Phishing</a></h2>
+<p>Le email di phishing sono a tutti gli effetti un tentativo di <em>truffa</em>. Il caso più comune è un mittente che simula, nella grafica e nel contenuto, una istituzione nota, come ad esempio le poste o una banca. Chi riceve la mail, se non si accorge della truffa, clicca su un link presente e si ritrova su una pagina contraffatta. Se inserisce password o altri dati sensibili su questa pagina, sicuramente passerà dei guai.</p>
+<p>A volte è semplice accorgersi del phishing, perché i testi sono in un italiano poco corretto o le immagini sgranate. Ma altre volte non è banale. Vediamo un esempio:</p>
+<p align="center">
+<img title="phishing" src='./email/phishing.gif' width='90%' style="padding: 30px 0 10px 0;">
+</p>
+<p>Questa mail sembra credibile. Anche il link sembra quello ufficiale. Ma <strong>attenzione</strong>: nella realtà quando andate a cliccare su quel link vi porta su una pagina con un indirizzo diverso! Infatti il testo del link può essere diverso dal link stesso: ad esempio questo link <a href="http://www.veneziacomics.com/files/veneziacomics.com/2016/02/10636612_10153724437910700_8664823752192133128_o.jpg">www.google.com</a> non porta dove ci si aspetta! Quindi <strong>fate sempre molta attenzione prima di cliccare su qualcosa</strong>.</p>
+<h3><a class="header" href="#phishing-su-whatsapp" id="phishing-su-whatsapp">Phishing su Whatsapp</a></h3>
+<p>Un altro caso di phishing che mi è capitato qualche tempo fa su Whatsapp è stato questo:</p>
+<p align="center">
+<img title="phishing whatsapp" src='./email/phishing-wa.png' width='90%' style="padding: 30px 0 10px 0;">
+</p>
+<p>In questo caso è più evidente che si tratta di un errore, perché il sito ha un indirizzo alquanto strano.</p>
+<h2><a class="header" href="#malware" id="malware">Malware</a></h2>
+<p>Il malware è un messaggio inviato con l'intento di fare un danno sulla macchina del destinatario. Un esempio recentissimo e che ha fatto storia è stato il carattere indiano che mandava in crash i dispositivi Apple.</p>
+<p align="center">
+<img title="phishing" src='./email/malware.png' width='30%' style="padding: 30px 0 10px 0;">
+</p>
+<p>Se un messaggio contente questo carattere è stato mandato con l'esplicito intento di fare un danno, può essere considerato a tutti gli effetti un malware.</p>
+<p>Anche in questo caso, fate sempre attenzione quando ricevete una <strong>mail sospetta</strong>: se contiene un allegato, <strong>non</strong> apritelo. Se non siete sicuri, inviate una mail al mittente chiedendo se è sicuro aprire l'allegato. Se questo per qualche motivo non fosse possibile, semplicemente ignorate il messaggio: meglio rimanere con la curiosità che perdere ore o giorni a rimettere a posto il vostro dispositivo o, peggio, fare da veicolo di infezione per altre persone.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../email/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../email/002-ambiente.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../email/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../email/002-ambiente.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

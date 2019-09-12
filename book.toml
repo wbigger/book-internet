@@ -1,6 +1,1 @@
-[book]
-authors = ["Claudio Capobianco"]
-language = "it"
-multilingual = false
-src = "src"
-title = "Internet"
+book-1Binf.toml

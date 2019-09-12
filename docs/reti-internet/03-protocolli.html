@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html lang="it" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Protocolli di rete - Internet</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../index.html"><strong aria-hidden="true">1.</strong> Reti, Internet e Web</a></li><li><a href="../reti-internet/index.html"><strong aria-hidden="true">2.</strong> Reti e Internet</a></li><li><ol class="section"><li><a href="../reti-internet/01-trasmissione.html"><strong aria-hidden="true">2.1.</strong> Trasmissione dei dati</a></li><li><a href="../reti-internet/02-codifica.html"><strong aria-hidden="true">2.2.</strong> Codifica dell'informazione</a></li><li><a href="../reti-internet/03-protocolli.html" class="active"><strong aria-hidden="true">2.3.</strong> Protocolli di rete</a></li></ol></li><li><a href="../email/index.html"><strong aria-hidden="true">3.</strong> Email &amp; Messaggi</a></li><li><ol class="section"><li><a href="../email/001-spam.html"><strong aria-hidden="true">3.1.</strong> Spam</a></li><li><a href="../email/002-ambiente.html"><strong aria-hidden="true">3.2.</strong> Ambiente &amp; Sovraccarico informatico</a></li><li><a href="../email/01-netiquette.html"><strong aria-hidden="true">3.3.</strong> Netiquette</a></li></ol></li><li><a href="../web/index.html"><strong aria-hidden="true">4.</strong> Web</a></li><li><ol class="section"><li><a href="../web/01-web-4.0.html"><strong aria-hidden="true">4.1.</strong> Web 4.0</a></li><li><a href="../web/02-privacy-security.html"><strong aria-hidden="true">4.2.</strong> Privacy &amp; Security</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Internet</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#protocolli-di-rete" id="protocolli-di-rete">Protocolli di rete</a></h1>
+<p>Finora noi abbiamo trasmesso l'informazione come una sequenza di bit da una macchina all'altra. Questo potrebbe andare abbastanza bene se ci fossero solo due computer, senza nessuna interferenza tra loro. Ma nella realtà ci sono tantissimi computer che comunicano sulla stessa rete, e tantissime interferenze per la strada.</p>
+<p>Abbiamo fatto una simulazione della confusione della rete in classe, quando provavate a mandarvi dei messaggi da un banco all'altro, con il professore che faceva da messaggero, ed ogni tanto si perdeva o mischiava i biglietti.
+In effetti su Internet è come se due computer parlassero da un lato all'altro della vostra classe.</p>
+<p>Per poter comunicare in maniera affidabile è necessario che siano implementati dei meccanismi per assicurarsi che i dati viaggino e arrivino in maniera corretta. Questi meccanismi vengono detti <em>protocolli di rete</em>.</p>
+<p><a href="https://it.wikipedia.org/wiki/Vint_Cerf">Vint Cerf</a> negli anni settanta, insieme Bob Kahn, ha ideato un tipo di protocollo particolarmente efficace, che ha avuto una larghissima diffusione. Questo protocollo si chiama TCP/IP ed è alla base di Internet.</p>
+<h1><a class="header" href="#divisione-dei-dati-in-pacchetti" id="divisione-dei-dati-in-pacchetti">Divisione dei dati in pacchetti</a></h1>
+<p>Per aumentare la probabilità che i dati arrivino a destinazione, si usa prima di tutto una tecnica chiamata &quot;segmentazione dei pacchetti&quot; (packet segmentation, in inglese). In pratica, se i dati da inviare superano una certa dimensione, il nostro computer li spezzetta.</p>
+<p>Ipotizziamo di voler inviare questo messaggio:</p>
+<pre><code>CIAOCOMESTAIVINT
+</code></pre>
+<p>Se ogni pacchetto contiene al massimo 6 caratteri, lo dovremo dividere in 3 pacchetti:</p>
+<pre><code> CIAOCO
+ MESTAI
+ VINT
+</code></pre>
+<p>I pacchetti vengono quindi inviati separatamente e gestiti in maniera indipendente dalla rete. Possono succedere principalmente due cose spiacevoli:</p>
+<ul>
+<li>i pacchetti si mischiano tra di loro</li>
+<li>qualche pacchetto si perde del tutto</li>
+</ul>
+<blockquote>
+<p>Come fa a perdersi un pacchetto? Ci possono essere varie cause: il traffico nella rete è troppo alto ed alcuni pacchetti vengono buttati, qualche cavo o computer sparso per il mondo si rompe, interferenze elettromagnetiche...</p>
+</blockquote>
+<blockquote>
+<p>Tipicamente si dividono i pacchetti hanno una dimensione massima di circa 1500 bytes.</p>
+</blockquote>
+<h2><a class="header" href="#numerazione-dei-pacchetti" id="numerazione-dei-pacchetti">Numerazione dei pacchetti</a></h2>
+<p>Per evitare che i pacchetti arrivino nell'ordine sbagliato, possiamo numerarli. Utilizziamo quindi parte del nostro spazio per scriverci il numero del pacchetto. Quando dall'altra parte il computer riceve un pacchetto, lo mette nell'ordine corretto.</p>
+<h2><a class="header" href="#richiesta-di-ritrasmissione" id="richiesta-di-ritrasmissione">Richiesta di ritrasmissione</a></h2>
+<p>E se qualche pacchetto non arrivasse del tutto? Dobbiamo prevedere un meccanismo per richiedere al mittente un pacchetto perso. Per fare questo dobbiamo sacrificare un'altra parte del nostro spazio, ma ne vale la pena!</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../reti-internet/02-codifica.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../email/index.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../reti-internet/02-codifica.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../email/index.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -17,7 +17,7 @@ if [ $# -eq 1 ] && [ $1 == "test" ]; then
 fi
 
 CLASS="null"
-CLASSES="2Binf"
+CLASSES="1Binf"
 
 if [ $# -eq 1 ] && [ $1 == "-l" ]; then
   echo "Available classes: $CLASSES";
