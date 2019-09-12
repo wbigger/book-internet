@@ -18,5 +18,5 @@ Tutte queste cose sono diventate uno standard per nel mondo attuale, e le impare
 Questa è una pagina che abbiamo creato insieme a lezione.
 
 <p align="center">
-<img title="tim berners-lee" src='./web/tim-berners-lee.png' width='100%' style="padding: 30px 0 10px 0;border-style: solid;">
+<img title="tim berners-lee" src='./tim-berners-lee.png' width='100%' style="padding: 30px 0 10px 0;border-style: solid;">
 </p>

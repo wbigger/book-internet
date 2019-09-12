@@ -48,7 +48,7 @@ Ad esempio:
 
 diventa:
 
-<img src='./reti-internet/cross-alpha.png'>
+<img src='./cross-alpha.png'>
 
 Se vogliamo una maggiore risoluzione o più colori, dobbiamo necessariamente aumentare il numero di bit. Maggiore è il numero di bit, maggiore è lo spazio che occuperà in memoria, detto anche _peso_ dell'immagine. Non c'è una risoluzione migliore in assoluto, ma ci sono alcune accortezze che dobbiamo tenere a mente. In generale, è bene cercare di avere le immagini più leggere possibili senza danneggiare l'esperienza dell'utente: ad esempio
 tutto quello che viaggia sul web ha una risoluzione che va bene per la visualizzazione su schermo, ma non per la stampa o ingrandimenti, per ridurre quanto più possibile i tempi di caricamento della pagina ed il traffico dati. I siti di fotografia invece hanno risoluzioni molto più alte.
